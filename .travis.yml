@@ -6,6 +6,7 @@ xcode_sdk: iphonesimulator
 before_install:
   - gem install xcpretty
   - gem install cocoapods --pre
+  - pod repo update
   - brew update
   - brew upgrade carthage
   - carthage update --no-use-binaries --platform iOS
