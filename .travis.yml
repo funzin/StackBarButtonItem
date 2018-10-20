@@ -6,7 +6,9 @@ xcode_sdk: iphonesimulator
 before_install:
   - gem install xcpretty
   - gem install cocoapods --pre
-
+  - brew update
+  - brew upgrade carthage
+  - carthage update --no-use-binaries --platform iOS
 script:
   - xcodebuild test -workspace StackBarButtonItem.xcworkspace -scheme StackBarButtonItem-iOS -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.0,name=iPhone X'| xcpretty -c
   - pod lib lint
