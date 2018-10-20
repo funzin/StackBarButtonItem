@@ -136,7 +136,7 @@ private extension StackBarButtonItem {
         if #available(iOS 11, *) {
             hideExtraMarginView(barButtonPosition, childStackView)
         } else {
-            configureMargin()
+            configureMinusMargin()
         }
     }
     
@@ -211,7 +211,7 @@ private extension StackBarButtonItem {
 private extension StackBarButtonItem {
     
     /// Configure margin width
-    func configureMargin() {
+    func configureMinusMargin() {
         guard let rootVC = UIApplication.shared.delegate?.window??.rootViewController?.children.first else { return }
         
         // observe viewWillLayoutSubviews(transition)
