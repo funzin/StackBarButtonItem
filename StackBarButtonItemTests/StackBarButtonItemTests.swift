@@ -40,26 +40,35 @@ class StackBarButtonItemTests: XCTestCase {
         vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2])
         vc.view.layoutIfNeeded()
         
-        guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
-            let leftStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let rightChildStackView = rightBaseStackView.arrangedSubviews.first as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView,
+            let leftChildStackView = leftBaseStackView.arrangedSubviews.last as? UIStackView else {
                 XCTFail("Expected stackView is not nil")
                 return
         }
         
-        XCTAssertTrue(rightStackView.arrangedSubviews.count == 2)
-        XCTAssertTrue(leftStackView.arrangedSubviews.count == 2)
+        // baseStackView
+        XCTAssertTrue(rightBaseStackView.arrangedSubviews.count == 1)
+        XCTAssertTrue(leftBaseStackView.arrangedSubviews.count == 1)
+        
+        // childStackView
+        XCTAssertTrue(rightChildStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(leftChildStackView.arrangedSubviews.count == 2)
     }
     
     func testStackViewSize() {
         vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2])
         vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2])
         
-        guard let rightSize = vc.navigationItem.rightBarButtonItems?.last?.customView?.frame.size,
-            let leftSize = vc.navigationItem.leftBarButtonItems?.last?.customView?.frame.size else {
-                XCTFail("Expected size is not nil")
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
+                XCTFail("Expected stackView is not nil")
                 return
         }
         
+        let rightSize = rightBaseStackView.frame.size
+        let leftSize = leftBaseStackView.frame.size
         XCTAssertTrue(rightSize == CGSize(width: 88, height: 44))
         XCTAssertTrue(leftSize == CGSize(width: 88, height: 44))
     }
@@ -68,46 +77,87 @@ class StackBarButtonItemTests: XCTestCase {
         vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], spacing: 10)
         vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], spacing: 10)
         
-        guard let rightWidth = vc.navigationItem.rightBarButtonItems?.last?.customView?.frame.size.width,
-            let leftWidth = vc.navigationItem.leftBarButtonItems?.last?.customView?.frame.size.width else {
-                XCTFail("Expected size is not nil")
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let rightChildStackView = rightBaseStackView.arrangedSubviews.first as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView,
+            let leftChildStackView = leftBaseStackView.arrangedSubviews.last as? UIStackView else {
+                XCTFail("Expected stackView is not nil")
                 return
         }
         
+        
+        let rightWidth = rightChildStackView.frame.width
+        let leftWidth = leftChildStackView.frame.width
+        
         XCTAssertTrue(rightWidth == 98)
         XCTAssertTrue(leftWidth == 98)
+        XCTAssertTrue(rightChildStackView.spacing == 10)
+        XCTAssertTrue(leftChildStackView.spacing == 10)
     }
     
     func testStackViewMargin() {
         vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], margin: 10)
         vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], margin: 10)
         
-        guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
-            let leftStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let rightChildStackView = rightBaseStackView.arrangedSubviews.first as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView,
+            let leftChildStackView = leftBaseStackView.arrangedSubviews.last as? UIStackView else {
+                XCTFail("Expected stackView is not nil")
+                return
+        }
+
+        
+        XCTAssertTrue(rightBaseStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(rightChildStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(rightBaseStackView.frame.width == 98)
+        XCTAssertTrue(rightChildStackView.frame.width == 88)
+        
+        XCTAssertTrue(leftBaseStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(leftChildStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(leftBaseStackView.frame.width == 98)
+        XCTAssertTrue(leftChildStackView.frame.width == 88)
+    }
+    
+    func testStackViewMarginAndSapcing() {
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], spacing: 20, margin: 10)
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], spacing: 20, margin: 10)
+        
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let rightChildStackView = rightBaseStackView.arrangedSubviews.first as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView,
+            let leftChildStackView = leftBaseStackView.arrangedSubviews.last as? UIStackView else {
                 XCTFail("Expected stackView is not nil")
                 return
         }
         
+        XCTAssertTrue(rightBaseStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(rightChildStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(rightBaseStackView.frame.width == 118)
+        XCTAssertTrue(rightChildStackView.frame.width == 108)
+        XCTAssertTrue(rightChildStackView.spacing == 20)
         
-        XCTAssertTrue(rightStackView.arrangedSubviews.count == 3)
-        XCTAssertTrue(rightStackView.frame.width == 98)
-        
-        XCTAssertTrue(leftStackView.arrangedSubviews.count == 3)
-        XCTAssertTrue(leftStackView.frame.width == 98)
+        XCTAssertTrue(leftBaseStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(leftChildStackView.arrangedSubviews.count == 2)
+        XCTAssertTrue(leftBaseStackView.frame.width == 118)
+        XCTAssertTrue(leftChildStackView.frame.width == 108)
+        XCTAssertTrue(leftChildStackView.spacing == 20)
+
     }
     
     func testStackViewReversed() {
         vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], reversed: true)
         vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], reversed: true)
         
-        guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
-            let leftStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
+        guard let rightBaseStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
+            let rightChildStackView = rightBaseStackView.arrangedSubviews.first as? UIStackView,
+            let leftBaseStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView,
+            let leftChildStackView = leftBaseStackView.arrangedSubviews.last as? UIStackView else {
                 XCTFail("Expected stackView is not nil")
                 return
         }
-        
-        
-        XCTAssertTrue(rightStackView.arrangedSubviews.reversed() == [rightButton1, rightButton2])
-        XCTAssertTrue(leftStackView.arrangedSubviews.reversed() == [leftButton1, leftButton2])
+
+        XCTAssertTrue(rightChildStackView.arrangedSubviews.reversed() == [rightButton1, rightButton2])
+        XCTAssertTrue(leftChildStackView.arrangedSubviews.reversed() == [leftButton1, leftButton2])
     }
 }
