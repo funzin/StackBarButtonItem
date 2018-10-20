@@ -104,6 +104,7 @@ self.navigationItem.right.setStackBarButtonItems(views: [rightButton])
 self.navigationItem.right.setStackBarButtonItems(views: [rightButton], margin: 10)
 ```
 
+#### Example
 |Margin|ScreenShot|
 |:-:|:-:|
 |`margin == 0`|<img src=Resources/Screenshot/Margin/margin_0.png width=600>|
@@ -115,16 +116,19 @@ self.navigationItem.right.setStackBarButtonItems(views: [rightButton], margin: 1
 self.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], spacing: 10)
 ```
 
+#### Example
 |Spacing|ScreenShot|
 |:-:|:-:|
 |`spacing == 0`|<img src=Resources/Screenshot/Spacing/spacing_0.png width=600>|
 |`spacing == 10`|<img src=Resources/Screenshot/Spacing/spacing_10.png width=600>|
+
 ### Reverse
 ```swift
 // e.g. set reversed to true
 self.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], reversed: true)
 ```
 
+#### Example
 |Reverse|ScreenShot|
 |:-:|:-:|
 |`reversed == false`|<img src=Resources/Screenshot/Reverse/reversed_false.png width=600>|
