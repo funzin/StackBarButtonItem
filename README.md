@@ -69,7 +69,7 @@ pod 'StackBarButtonItem'
 
 ### Introduction
 #### iOS11 or later
-If iOS version is iOS11 or layter, you must use autolayout.
+If iOS version is iOS11 or later, you must use autolayout.
 ```swift
 import StackBarButtonItem
 ・
