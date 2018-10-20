@@ -36,8 +36,8 @@ class StackBarButtonItemTests: XCTestCase {
     
     
     func testArrangedSubViewsCount() {
-        vc.navigationItem.setLeftStackBarButtonItems(views: [leftButton1, leftButton2])
-        vc.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2])
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2])
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2])
         vc.view.layoutIfNeeded()
         
         guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
@@ -51,8 +51,8 @@ class StackBarButtonItemTests: XCTestCase {
     }
     
     func testStackViewSize() {
-        vc.navigationItem.setLeftStackBarButtonItems(views: [leftButton1, leftButton2])
-        vc.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2])
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2])
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2])
         
         guard let rightSize = vc.navigationItem.rightBarButtonItems?.last?.customView?.frame.size,
             let leftSize = vc.navigationItem.leftBarButtonItems?.last?.customView?.frame.size else {
@@ -65,8 +65,8 @@ class StackBarButtonItemTests: XCTestCase {
     }
     
     func testStackViewSpace() {
-        vc.navigationItem.setLeftStackBarButtonItems(views: [leftButton1, leftButton2], spacing: 10)
-        vc.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2], spacing: 10)
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], spacing: 10)
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], spacing: 10)
         
         guard let rightWidth = vc.navigationItem.rightBarButtonItems?.last?.customView?.frame.size.width,
             let leftWidth = vc.navigationItem.leftBarButtonItems?.last?.customView?.frame.size.width else {
@@ -79,8 +79,8 @@ class StackBarButtonItemTests: XCTestCase {
     }
     
     func testStackViewMargin() {
-        vc.navigationItem.setLeftStackBarButtonItems(views: [leftButton1, leftButton2], margin: 10)
-        vc.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2], margin: 10)
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], margin: 10)
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], margin: 10)
         
         guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
             let leftStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
@@ -97,8 +97,8 @@ class StackBarButtonItemTests: XCTestCase {
     }
     
     func testStackViewReversed() {
-        vc.navigationItem.setLeftStackBarButtonItems(views: [leftButton1, leftButton2], reversed: true)
-        vc.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2], reversed: true)
+        vc.navigationItem.left.setStackBarButtonItems(views: [leftButton1, leftButton2], reversed: true)
+        vc.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2], reversed: true)
         
         guard let rightStackView = vc.navigationItem.rightBarButtonItems?.last?.customView as? UIStackView,
             let leftStackView = vc.navigationItem.leftBarButtonItems?.last?.customView as? UIStackView else {
