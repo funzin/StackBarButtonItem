@@ -59,6 +59,7 @@ public extension StackBarButtonItem{
 // MARK: private method
 private extension StackBarButtonItem {
     
+    /// compositeDisposable dispose and assign CompositeDisposable
     func disposeAll() {
         if compositeDisposable.count != 0 {
             compositeDisposable.dispose()
@@ -66,6 +67,16 @@ private extension StackBarButtonItem {
         }
     }
     
+    /// Configure UIBarButtonItems
+    ///
+    ///
+    /// - Parameters:
+    ///   - views: An array of views to display on the right side of the navigation bar
+    ///   - spacing: Space value between view and view
+    ///   - margin: Margin from right end of naigationBar
+    ///   - reversed: Switch view order
+    ///   - animated: Animation flag
+    /// - Returns: configured items
     func configureItems(views: [UIView], spacing: CGFloat = 0, margin: CGFloat = 0, reversed: Bool = false, animated: Bool = false) -> [UIBarButtonItem]{
         let views = reversed ? views.reversed(): views
         let childStackView = createChildStackView(barButtonPosition: self.position, views: views, margin: margin, spacing: spacing)
@@ -193,7 +204,7 @@ private extension StackBarButtonItem {
     }
 }
 
-// MARK: iOS10 or less method private method
+// MARK: iOS10 or less private method
 @available(iOS, introduced: 9.0, obsoleted: 11.0)
 private extension StackBarButtonItem {
     
