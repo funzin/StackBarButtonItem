@@ -45,7 +45,11 @@ public extension StackBarButtonItem{
     func setStackBarButtonItems(views: [UIView], spacing: CGFloat = 0, margin: CGFloat = 0, reversed: Bool = false, animated: Bool = false) {
         disposeAll()
         
-        let items = configureItems(views: views, spacing: spacing, margin: margin, reversed: reversed, animated: animated)
+        var items: [UIBarButtonItem] = []
+        if !views.isEmpty {
+            items = configureItems(views: views, spacing: spacing, margin: margin, reversed: reversed, animated: animated)
+        }
+        
         switch self.position {
         case .right:
             self.navigationItem?.setRightBarButtonItems(items, animated: animated)

@@ -160,4 +160,18 @@ class StackBarButtonItemTests: XCTestCase {
         XCTAssertTrue(rightChildStackView.arrangedSubviews.reversed() == [rightButton1, rightButton2])
         XCTAssertTrue(leftChildStackView.arrangedSubviews.reversed() == [leftButton1, leftButton2])
     }
+    
+    func testStackViewEmpty() {
+        vc.navigationItem.left.setStackBarButtonItems(views: [])
+        vc.navigationItem.right.setStackBarButtonItems(views: [])
+        
+        guard let rightBarButtonItems = vc.navigationItem.rightBarButtonItems,
+            let leftBarButtonItems = vc.navigationItem.leftBarButtonItems else {
+                XCTFail("Expected barButtonItems is not nil")
+                return
+        }
+        
+        XCTAssertTrue(rightBarButtonItems.isEmpty)
+        XCTAssertTrue(leftBarButtonItems.isEmpty)
+    }
 }
