@@ -10,6 +10,7 @@
 		314AF93E2146666C0008202E /* StackBarButtonItem.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A6D2136B8AE0034767C /* StackBarButtonItem.framework */; };
 		314AF962214666F70008202E /* StackBarButtonItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A502136B7EE0034767C /* StackBarButtonItemTests.swift */; };
 		314AF9662146783F0008202E /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314AF9652146783F0008202E /* DeviceExtension.swift */; };
+		31658C74217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31658C73217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift */; };
 		D4EC7A912136BA8F0034767C /* StackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */; };
 		D4EC7A9E2136BC5D0034767C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A992136BC5C0034767C /* RxCocoa.framework */; };
 		D4EC7AA02136BC5D0034767C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A9B2136BC5C0034767C /* RxSwift.framework */; };
@@ -29,6 +30,7 @@
 		314AF92F214665D60008202E /* Info-iOS.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Info-iOS.plist"; sourceTree = "<group>"; };
 		314AF9392146666B0008202E /* StackBarButtonItemTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StackBarButtonItemTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		314AF9652146783F0008202E /* DeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceExtension.swift; sourceTree = "<group>"; };
+		31658C73217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+StackBarButtonItem.swift"; sourceTree = "<group>"; };
 		D4EC7A452136B7EE0034767C /* StackBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackBarButtonItem.h; sourceTree = "<group>"; };
 		D4EC7A502136B7EE0034767C /* StackBarButtonItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBarButtonItemTests.swift; sourceTree = "<group>"; };
 		D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackBarButtonItem.swift; sourceTree = "<group>"; };
@@ -111,8 +113,9 @@
 		D4EC7A5D2136B7F80034767C /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */,
 				314AF9652146783F0008202E /* DeviceExtension.swift */,
+				D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */,
+				31658C73217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31658C74217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift in Sources */,
 				D4EC7A912136BA8F0034767C /* StackBarButtonItem.swift in Sources */,
 				314AF9662146783F0008202E /* DeviceExtension.swift in Sources */,
 			);
