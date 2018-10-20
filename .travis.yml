@@ -1,0 +1,14 @@
+language: objective-c
+osx_image: xcode10
+xcode_workspace: StackBarButtonItem.xcworkspace
+xcode_scheme: StackBarButtonItem-iOS
+xcode_sdk: iphonesimulator
+before_install:
+  - gem install xcpretty
+  - gem install cocoapods --pre
+
+script:
+  - xcodebuild test -workspace StackBarButtonItem.xcworkspace -scheme StackBarButtonItem-iOS -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,OS=12.0,name=iPhone X'| xcpretty -c
+  - pod lib lint
+ notifications:
+  email: false
