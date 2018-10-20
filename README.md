@@ -1,6 +1,6 @@
 # StackBarButtonItem
 <p align="center">
-    <img src=Resources/Logo/logo.png alt="StackBarButtonItem" width="70%" />
+    <img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Logo/logo.png alt="StackBarButtonItem" width="70%" />
 </p>
 
 <p align="center">
@@ -107,8 +107,8 @@ self.navigationItem.right.setStackBarButtonItems(views: [rightButton], margin: 1
 #### Example
 |Margin|ScreenShot|
 |:-:|:-:|
-|`margin == 0`|<img src=Resources/Screenshot/Margin/margin_0.png width=600>|
-|`margin == 10`|<img src=Resources/Screenshot/Margin/margin_10.png width=600>|
+|`margin == 0`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Margin/margin_0.png width=600>|
+|`margin == 10`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Margin/margin_10.png width=600>|
     
 ### Spacing
 ```swift
@@ -119,8 +119,8 @@ self.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButt
 #### Example
 |Spacing|ScreenShot|
 |:-:|:-:|
-|`spacing == 0`|<img src=Resources/Screenshot/Spacing/spacing_0.png width=600>|
-|`spacing == 10`|<img src=Resources/Screenshot/Spacing/spacing_10.png width=600>|
+|`spacing == 0`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Spacing/spacing_0.png width=600>|
+|`spacing == 10`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Spacing/spacing_10.png width=600>|
 
 ### Reverse
 ```swift
@@ -131,8 +131,8 @@ self.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButt
 #### Example
 |Reverse|ScreenShot|
 |:-:|:-:|
-|`reversed == false`|<img src=Resources/Screenshot/Reverse/reversed_false.png width=600>|
-|`reversed == true`|<img src=Resources/Screenshot/Reverse/reversed_true.png width=600>|
+|`reversed == false`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Reverse/reversed_false.png width=600>|
+|`reversed == true`|<img src=https://github.com/funzin/StackBarButtonItem/blob/master/Resources/Screenshot/Reverse/reversed_true.png width=600>|
 
 ## Demo
 If you are interested in StackBarButtonItem, please check demo after `carthage update`
