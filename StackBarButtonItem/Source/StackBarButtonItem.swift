@@ -67,6 +67,11 @@ private extension StackBarButtonItem {
         }
     }
     
+    func addDisposable(_ disposable: Disposable) {
+        _ = compositeDisposable.insert(disposable)
+        disposable.disposed(by: disposeBag)
+    }
+    
     /// Configure UIBarButtonItems
     ///
     ///
@@ -189,8 +194,7 @@ private extension StackBarButtonItem {
                     .forEach { $0.isHidden = true }
             })
         
-        _ = compositeDisposable.insert(disposable)
-        disposable.disposed(by: disposeBag)
+        addDisposable(disposable)
     }
     
     /// Check didAddSubView timing
@@ -221,8 +225,7 @@ private extension StackBarButtonItem {
                 me.marginItem.width = me.minusMargin(rootVC.traitCollection)
             })
         
-        _ = compositeDisposable.insert(disposable)
-        disposable.disposed(by: disposeBag)
+        addDisposable(disposable)
     }
     
     /// Minus margin width in case of iOS 10 or or less
