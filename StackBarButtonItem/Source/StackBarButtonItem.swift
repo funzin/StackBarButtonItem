@@ -19,8 +19,7 @@ public final class StackBarButtonItem {
     
     /// use in navigation margin setting
     private let marginItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-    
-    
+
     private weak var navigationItem: UINavigationItem?
     private let position: BarButtonPosition 
     
