@@ -46,7 +46,7 @@ class FirstViewController: UIViewController {
                 rightButton2.heightAnchor.constraint(equalToConstant: 44),
                 ])
             
-            self.navigationItem.setRightStackBarButtonItems(views: [rightButton1, rightButton2])
+            self.navigationItem.right.setStackBarButtonItems(views: [rightButton1, rightButton2])
         }
         
         LeftButton: do {
@@ -56,7 +56,7 @@ class FirstViewController: UIViewController {
                 leftButton.heightAnchor.constraint(equalToConstant: 44)
                 ])
             
-            self.navigationItem.setLeftStackBarButtonItems(views: [leftButton])
+            self.navigationItem.left.setStackBarButtonItems(views: [leftButton])
         }
     }
     
