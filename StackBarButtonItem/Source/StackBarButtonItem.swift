@@ -162,8 +162,7 @@ private extension StackBarButtonItem {
     ///   - barButtonPosition: right or left
     ///   - childStackView: StackView for embedding in BarButtonItem
     func hideExtraMarginView(_ barButtonPosition: BarButtonPosition, _ childStackView: UIStackView) {
-        
-        
+
         let disposable = childStackView.rx.methodInvoked(#selector(UIView.didMoveToSuperview))
             .observeOn(ConcurrentMainScheduler.instance)
             .flatMap { [weak childStackView] _ -> Observable<UIStackView> in
