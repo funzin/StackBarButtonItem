@@ -19,7 +19,7 @@ public final class StackBarButtonItem {
     
     /// use in navigation margin setting
     private let marginItem: UIBarButtonItem = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: nil, action: nil)
-
+    
     private weak var navigationItem: UINavigationItem?
     private let position: BarButtonPosition 
     
@@ -83,48 +83,43 @@ private extension StackBarButtonItem {
     /// - Returns: configured items
     func configureItems(views: [UIView], spacing: CGFloat = 0, margin: CGFloat = 0, reversed: Bool = false, animated: Bool = false) -> [UIBarButtonItem]{
         let views = reversed ? views.reversed(): views
-        let childStackView = createChildStackView(barButtonPosition: self.position, views: views, margin: margin, spacing: spacing)
-        let items = convertIntoItems(childStackView)
         
-        congifureNavigationMargin(barButtonPosition: self.position, childStackView: childStackView)
+        let baseStackView = createBaseStackView(barButtonPosition: self.position, views: views, spacing: spacing, margin: margin)
+        let items = convertIntoItems(baseStackView)
+        
+        congifureNavigationMargin(barButtonPosition: self.position, childStackView: baseStackView)
         return items
     }
     
-    /// Create StackView to embed in BarButtonItem
-    ///
+    /// Create BaseStackView to embed in BarButtonItem. baseStackView includes childStackView(views and spacing) and margin view
     /// - Parameters:
     ///   - barButtonPosition: right or left
     ///   - views: An array of views to display on the right or left side of the navigation bar
-    ///   - margin: Margin from the right or left end of navigationBar
     ///   - spacing: Space value between view and view
-    /// - Returns: StackView which has finished setting such as mergin and space
-    func createChildStackView(barButtonPosition: BarButtonPosition, views: [UIView], margin: CGFloat = 0, spacing: CGFloat = 0) -> UIStackView {
-        let stackView = UIStackView(arrangedSubviews: views)
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = spacing
+    ///   - margin: Margin from the right or left end of navigationBar
+    /// - Returns: StackView which has finished setting such as margin and space
+    func createBaseStackView(barButtonPosition: BarButtonPosition, views: [UIView], spacing: CGFloat = 0, margin: CGFloat = 0) -> UIStackView {
+        let childStackView = createChildStackView(views: views, spacing: spacing)
+        let baseStackView = UIStackView(arrangedSubviews: [childStackView])
         
-        // configure margin
-        if margin > 0 {
-            let marginView = UIView(frame: CGRect(x: 0, y: 0, width: margin, height: 0))
-            marginView.widthAnchor.constraint(equalToConstant: margin).isActive = true
-            
-            switch barButtonPosition {
-            case .left:
-                stackView.insertArrangedSubview(marginView, at: 0)
-            case .right:
-                stackView.addArrangedSubview(marginView)
-            }
-        }
+        baseStackView.configure(spacing: 0)
+        baseStackView.addMarginView(barButtonPosition: self.position, margin: margin)
+        baseStackView.updateFrameSize()
         
-        // configure stackview size and space
-        let spaceWidth = CGFloat(max(stackView.arrangedSubviews.count - 1, 0)) * stackView.spacing
-        let width = stackView.arrangedSubviews.reduce(CGFloat(0), { $0 + $1.frame.size.width }) + spaceWidth
-        let height = stackView.arrangedSubviews.reduce(CGFloat(0), { max($0, $1.frame.size.height) })
-        stackView.frame.size = CGSize(width: width, height: height)
+        return baseStackView
+    }
+    
+    /// Create childStackView. childStackView includes views and spacing
+    /// - Parameters:
+    ///   - views: An array of views to display on the right or left side of the navigation bar
+    ///   - spacing: Space value between view and view
+    /// - Returns: StackView which has finished setting such as spacing
+    func createChildStackView(views: [UIView], spacing: CGFloat = 0) -> UIStackView {
+        let childStackView = UIStackView(arrangedSubviews: views)
+        childStackView.configure(spacing: spacing)
+        childStackView.updateFrameSize()
         
-        return stackView
+        return childStackView
     }
     
     /// Configure navigationMargin
@@ -166,7 +161,7 @@ private extension StackBarButtonItem {
     ///   - barButtonPosition: right or left
     ///   - childStackView: StackView for embedding in BarButtonItem
     func hideExtraMarginView(_ barButtonPosition: BarButtonPosition, _ childStackView: UIStackView) {
-
+        
         let disposable = childStackView.rx.methodInvoked(#selector(UIView.didMoveToSuperview))
             .observeOn(ConcurrentMainScheduler.instance)
             .flatMap { [weak childStackView] _ -> Observable<UIStackView> in
