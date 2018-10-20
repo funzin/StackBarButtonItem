@@ -38,9 +38,9 @@ public extension StackBarButtonItem{
     ///
     ///
     /// - Parameters:
-    ///   - views: An array of views to display on the right side of the navigation bar
+    ///   - views: An array of views to display on the right or left side of the navigation bar
     ///   - spacing: Space value between view and view
-    ///   - margin: Margin from right end of naigationBar
+    ///   - margin: Margin from right or left end of naigationBar
     ///   - reversed: Switch view order
     ///   - animated: Animation flag
     func setStackBarButtonItems(views: [UIView], spacing: CGFloat = 0, margin: CGFloat = 0, reversed: Bool = false, animated: Bool = false) {
@@ -71,9 +71,9 @@ private extension StackBarButtonItem {
     ///
     ///
     /// - Parameters:
-    ///   - views: An array of views to display on the right side of the navigation bar
+    ///   - views: An array of views to display on the right or left side of the navigation bar
     ///   - spacing: Space value between view and view
-    ///   - margin: Margin from right end of naigationBar
+    ///   - margin: Margin from right or left end of naigationBar
     ///   - reversed: Switch view order
     ///   - animated: Animation flag
     /// - Returns: configured items
@@ -89,9 +89,9 @@ private extension StackBarButtonItem {
     /// Create StackView to embed in BarButtonItem
     ///
     /// - Parameters:
-    ///   - barButtonPosition: left or right
-    ///   - views: An array of views to display on the left or right side of the navigation bar
-    ///   - margin: Margin from the left or right end of navigationBar
+    ///   - barButtonPosition: right or left
+    ///   - views: An array of views to display on the right or left side of the navigation bar
+    ///   - margin: Margin from the right or left end of navigationBar
     ///   - spacing: Space value between view and view
     /// - Returns: StackView which has finished setting such as mergin and space
     func createChildStackView(barButtonPosition: BarButtonPosition, views: [UIView], margin: CGFloat = 0, spacing: CGFloat = 0) -> UIStackView {
@@ -159,7 +159,7 @@ private extension StackBarButtonItem {
     /// Hide extra margin view
     ///
     /// - Parameters:
-    ///   - barButtonPosition: left or right
+    ///   - barButtonPosition: right or left
     ///   - childStackView: StackView for embedding in BarButtonItem
     func hideExtraMarginView(_ barButtonPosition: BarButtonPosition, _ childStackView: UIStackView) {
         
