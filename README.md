@@ -6,7 +6,7 @@
 <p align="center">
   <img src="http://img.shields.io/badge/platform-iOS-blue.svg?style=flat" alt="Platform" />
   <a href="https://developer.apple.com/swift">
-    <img src="http://img.shields.io/badge/Swift-4.2-brightgreen.svg?style=flat" alt="Language">
+    <img src="http://img.shields.io/badge/Swift-4.2%20|%205.0-brightgreen.svg?style=flat" alt="Language">
   </a>
   <a href="https://github.com/Carthage/Carthage">
     <img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage" />
