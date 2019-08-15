@@ -5,11 +5,11 @@ extension UIDevice {
     var isPhone: Bool {
         return self.userInterfaceIdiom == .phone
     }
-    
+
     var isPad: Bool {
         return self.userInterfaceIdiom == .pad
     }
-    
+
     var isPlus: Bool {
         if isPhone {
             let height = UIScreen.main.nativeBounds.height
