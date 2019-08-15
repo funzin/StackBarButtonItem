@@ -12,9 +12,10 @@
 		314AF962214666F70008202E /* StackBarButtonItemTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A502136B7EE0034767C /* StackBarButtonItemTests.swift */; };
 		314AF9662146783F0008202E /* DeviceExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 314AF9652146783F0008202E /* DeviceExtension.swift */; };
 		31658C74217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31658C73217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift */; };
+		3176E4C1230541DA00CB14B0 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A992136BC5C0034767C /* RxCocoa.framework */; };
+		3176E4C2230541DA00CB14B0 /* RxRelay.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3176E4BC2305411300CB14B0 /* RxRelay.framework */; };
+		3176E4C3230541DA00CB14B0 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A9B2136BC5C0034767C /* RxSwift.framework */; };
 		D4EC7A912136BA8F0034767C /* StackBarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */; };
-		D4EC7A9E2136BC5D0034767C /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A992136BC5C0034767C /* RxCocoa.framework */; };
-		D4EC7AA02136BC5D0034767C /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D4EC7A9B2136BC5C0034767C /* RxSwift.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +34,7 @@
 		314AF9392146666B0008202E /* StackBarButtonItemTests-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "StackBarButtonItemTests-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		314AF9652146783F0008202E /* DeviceExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceExtension.swift; sourceTree = "<group>"; };
 		31658C73217B0AEF00FD3E18 /* UINavigationItem+StackBarButtonItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationItem+StackBarButtonItem.swift"; sourceTree = "<group>"; };
+		3176E4BC2305411300CB14B0 /* RxRelay.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxRelay.framework; path = Carthage/Build/iOS/RxRelay.framework; sourceTree = "<group>"; };
 		D4EC7A452136B7EE0034767C /* StackBarButtonItem.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StackBarButtonItem.h; sourceTree = "<group>"; };
 		D4EC7A502136B7EE0034767C /* StackBarButtonItemTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackBarButtonItemTests.swift; sourceTree = "<group>"; };
 		D4EC7A5E2136B8070034767C /* StackBarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackBarButtonItem.swift; sourceTree = "<group>"; };
@@ -58,8 +60,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D4EC7A9E2136BC5D0034767C /* RxCocoa.framework in Frameworks */,
-				D4EC7AA02136BC5D0034767C /* RxSwift.framework in Frameworks */,
+				3176E4C1230541DA00CB14B0 /* RxCocoa.framework in Frameworks */,
+				3176E4C2230541DA00CB14B0 /* RxRelay.framework in Frameworks */,
+				3176E4C3230541DA00CB14B0 /* RxSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -126,6 +129,7 @@
 		D4EC7A962136BC5C0034767C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3176E4BC2305411300CB14B0 /* RxRelay.framework */,
 				D4EC7A972136BC5C0034767C /* NSObject_Rx.framework */,
 				D4EC7A982136BC5C0034767C /* RxBlocking.framework */,
 				D4EC7A992136BC5C0034767C /* RxCocoa.framework */,
@@ -249,6 +253,7 @@
 			inputPaths = (
 				"$(SRCROOT)/Carthage/Build/iOS/RxSwift.framework",
 				"$(SRCROOT)/Carthage/Build/iOS/RxCocoa.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/RxRelay.framework",
 			);
 			outputPaths = (
 			);
