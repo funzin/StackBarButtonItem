@@ -36,7 +36,7 @@ StackBarButtonItem can use BarButtonItem like stackView.
 ## Requirements
 - Xcode10 or greater
 - iOS9 or greater
-- Swift4.2
+- Swift4.2 or greater
   
 ## Dependencies
 - [RxSwift](https://github.com/ReactiveX/RxSwift) (>= 4.3.1)
