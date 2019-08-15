@@ -1,5 +1,5 @@
 language: objective-c
-osx_image: xcode10
+osx_image: xcode10.3
 xcode_workspace: StackBarButtonItem.xcworkspace
 xcode_scheme: StackBarButtonItem-iOS
 xcode_sdk: iphonesimulator
@@ -8,7 +8,6 @@ before_install:
   - gem install cocoapods --pre
   - pod repo update
   - brew update
-  - brew upgrade carthage
   - carthage update --no-use-binaries --platform iOS
 before_script:
   - set -o pipefail
